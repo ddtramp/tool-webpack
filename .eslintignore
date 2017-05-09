@@ -1,0 +1,7 @@
+build/*.js
+config/*.js
+test/*.js
+test/**/*.js
+static/
+node_modules/
+
