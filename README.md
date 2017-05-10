@@ -20,9 +20,12 @@ webpack 脚手架
 [see](http://www.jianshu.com/p/42e11515c10f)
 
 ## future
-e2e test with nightwatch
+1. coverage reporting ; istanbul does not work
 
 ## log
+### 2017-05-10
+1. e2e test; nightwatch
+
 ### 2017-05-09
 
 1. add eslint and config
