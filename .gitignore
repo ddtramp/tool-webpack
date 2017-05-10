@@ -9,3 +9,5 @@ dist/
 
 .idea/
 webpack2.iml
+
+test/e2e/reports/
