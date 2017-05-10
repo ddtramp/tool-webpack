@@ -2,6 +2,8 @@ let webpack = require('webpack')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 let OpenBrowserPlugin = require('open-browser-webpack-plugin')
 let path = require('path')
+let testEnv = require('./config/test.env')
+
 /* globals __dirname */
 module.exports = {
     devtool: 'eval-source-map',
@@ -83,7 +85,7 @@ module.exports = {
             template: path.join(__dirname, '/app/index.tmpl.html') // new 一个这个插件的实例，并传入相关的参数
         }),
         new webpack.HotModuleReplacementPlugin(), // 热加载插件
-        new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+        new OpenBrowserPlugin({ url: 'http://localhost:' + testEnv.port })
     ],
 
     devServer: {
