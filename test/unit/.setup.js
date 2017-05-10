@@ -1,3 +1,9 @@
+/**
+ * http://airbnb.io/enzyme/
+ * http://mochajs.org/
+ * http://chaijs.com/
+ */
+
 require('babel-register')();
 
 var jsdom = require('jsdom').jsdom;
