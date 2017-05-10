@@ -1,12 +1,13 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+let webpack = require('webpack')
+let HtmlWebpackPlugin = require('html-webpack-plugin')
+let ExtractTextPlugin = require('extract-text-webpack-plugin')
+let path = require('path')
+/* globals __dirname */
 module.exports = {
-    entry: __dirname + "/app/main.js",
+    entry: path.join(__dirname, '/app/main.js'), // eslint-disable-line
     output: {
-        path: __dirname + "/build",
-        filename: "[name]-[hash].js"
+        path: path.join(__dirname, '/build'), // eslint-disable-line
+        filename: '[name]-[hash].js'
     },
 
     module: {
@@ -15,23 +16,23 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: [
-                    { loader: 'babel-loader' }//在webpack的module部分的loaders里进行配置即可
+                    { loader: 'babel-loader' } // 在webpack的module部分的loaders里进行配置即可
                 ]
             },
             {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
+                    fallback: 'style-loader',
                     use: [
                         {
-                            loader: "css-loader",
+                            loader: 'css-loader',
                             options: {
                                 modules: true
                             }
 
                         },
                         {
-                            loader: "postcss-loader"
+                            loader: 'postcss-loader'
                         }
                     ]
                 })
@@ -40,10 +41,10 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: __dirname + "/app/index.tmpl.html"
+            template: path.join(__dirname, '/app/index.tmpl.html')
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin("[name]-[hash].css")
+        new ExtractTextPlugin('[name]-[hash].css')
     ]
 }

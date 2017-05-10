@@ -1,12 +1,14 @@
 let webpack = require('webpack')
 let HtmlWebpackPlugin = require('html-webpack-plugin')
 let OpenBrowserPlugin = require('open-browser-webpack-plugin')
+let path = require('path')
+/* globals __dirname */
 module.exports = {
     devtool: 'eval-source-map',
 
-    entry:  __dirname + '/app/main.js', // eslint-disable-line
+    entry: path.join(__dirname, '/app/main.js'),
     output: {
-        path: __dirname + '/public', // eslint-disable-line
+        path: path.join(__dirname, '/public'), // eslint-disable-line
         filename: 'bundle.js'
     },
 
@@ -78,7 +80,7 @@ module.exports = {
     plugins: [
         new webpack.BannerPlugin('Copyright jackwang'), // 在这个数组中new一个就可以了
         new HtmlWebpackPlugin({ // eslint-disable-next-line
-            template: __dirname + '/app/index.tmpl.html' // new 一个这个插件的实例，并传入相关的参数
+            template: path.join(__dirname, '/app/index.tmpl.html') // new 一个这个插件的实例，并传入相关的参数
         }),
         new webpack.HotModuleReplacementPlugin(), // 热加载插件
         new OpenBrowserPlugin({ url: 'http://localhost:8080' })

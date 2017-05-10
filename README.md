@@ -12,7 +12,9 @@ webpack 脚手架
         
         npm run build 
         
-        npm run test 
+        npm run test    // enzyme test, mocha
+        
+        npm run eslint  // eslint check code
 
    
 [see](http://www.jianshu.com/p/42e11515c10f)
