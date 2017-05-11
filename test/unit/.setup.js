@@ -4,7 +4,7 @@
  * http://chaijs.com/
  */
 
-require('babel-register')();
+require('babel-register')(); // babel transform code to es5
 
 var jsdom = require('jsdom').jsdom;
 
@@ -24,6 +24,7 @@ global.navigator = {
 };
 
 documentRef = document;
+
 
 /**
  *  jack add for test with css-loader

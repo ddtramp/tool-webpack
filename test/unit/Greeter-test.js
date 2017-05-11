@@ -7,7 +7,7 @@ const props = {
 
 };
 
-describe("A suite", function() {
+describe("A suite", () => {
     // it("contains spec with an expectation", function() {
     //     expect(shallow(<DropDown />).contains(<div className="foo" />)).to.equal(true);
     // });
@@ -17,12 +17,12 @@ describe("A suite", function() {
     // });
 
 
-    it("测试 Visual Dom name", function() {
+    it("测试 Visual Dom name", () => {
         const wrapper = shallow(<Greeter {...props} />);
         expect(wrapper.name()).to.equal('div');
     });
 
-    it("测试 Visual Dom len", function() {
+    it("测试 Visual Dom len", () => {
         const wrapper = shallow(<Greeter {...props} />);
         expect(wrapper.find('.root').length).to.equal(1);
     });
