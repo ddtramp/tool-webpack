@@ -6,7 +6,7 @@ let testEnv = require('./config/test.env')
 
 /* globals __dirname */
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool: 'cheap-eval-source-map', // source map 调试
 
     entry: path.join(__dirname, '/app/main.js'),
     output: {
@@ -38,7 +38,7 @@ module.exports = {
                 test: /\.css$/,
                 exclude: [
                     /node_modules/,
-                    /reset.css/
+                    /common.css/
                 ],
                 use: [
                     {
@@ -55,27 +55,25 @@ module.exports = {
                         loader: 'postcss-loader'
                     }
                 ]
-            }
-            // customer handle css file
-            // {
-            //     test: /\.css$/,
-            //     include: [
-            //         /node_modules\/react-date-picker/,
-            //         /app\/reset.css/
-            //     ],
-            //     use: [
-            //         {
-            //             loader: 'style-loader'
-            //         },
-            //         {
-            //             loader: 'css-loader',
-            //             options: {
-            //                 modules: false
-            //             }
+            },
+            { // customer handle css file
+                test: /\.css$/,
+                include: [
+                    /common.css/
+                ],
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: false
+                        }
 
-            //         }
-            //     ]
-            // }
+                    }
+                ]
+            }
         ]
     },
 

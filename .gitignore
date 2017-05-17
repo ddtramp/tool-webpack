@@ -11,3 +11,4 @@ dist/
 webpack2.iml
 
 test/e2e/reports/
+coverage/
